@@ -1,0 +1,172 @@
+import 'package:flutter/material.dart';
+
+class EventTicketSummary extends StatefulWidget {
+  const EventTicketSummary({super.key});
+
+  @override
+  State<EventTicketSummary> createState() => _EventTicketSummaryState();
+}
+
+class _EventTicketSummaryState extends State<EventTicketSummary> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Ticket Summary',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Container(
+              height: 165,
+              width: 350,
+              decoration: BoxDecoration(
+                  border: Border.all(color: Color(0xff4B38AC)),
+                  
+                  borderRadius: BorderRadius.circular(10)),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Event name',
+                      style: TextStyle(
+                          fontSize: 20.0, fontWeight: FontWeight.w600),
+                    ),
+                    SizedBox(height: 10.0),
+                    Row(
+                      children: [
+                        Text(
+                          'Date:',
+                          style: TextStyle(
+                              color: Colors.black, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(width: 36.0),
+                        Text(
+                          'Wed, 10, June',
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Time:',
+                          style: TextStyle(
+                              color: Colors.black, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(width: 33.0),
+                        Text(
+                          '5pm onwards',
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Location:',
+                          style: TextStyle(
+                              color: Colors.black, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(width: 10.0),
+                        Text(
+                          'Colombo',
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20.0),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          '                                                 Rs.2000 x 1',
+                          style: TextStyle(
+                              color: Color(0xff4B38AC),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Container(
+                height: 40,
+                width: 350,
+                color: Colors.white,
+                child: Row(
+                  children: [
+                    Text(
+                      'Ticket Count',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      width: 200,
+                    ),
+                    Text('+ 1 -')
+                  ],
+                )),
+            SizedBox(
+              height: 315,
+            ),
+            Container(
+              height: 40,
+              width: 350,
+              color: Colors.white,
+              child: Row(
+                children: [
+                  Text(
+                    'Total',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    width: 230,
+                  ),
+                  Text(
+                    'Rs.2000',
+                    style: TextStyle(
+                        color: Color(0xff4B38AC),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Container(
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xffFC8E94)),
+                  onPressed: () {},
+                  child: Text(
+                    'Proceed',
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
