@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xffECECFE),
         elevation: 0,
         leading: Container(
           margin: EdgeInsets.all(10),

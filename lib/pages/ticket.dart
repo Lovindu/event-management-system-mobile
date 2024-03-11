@@ -50,9 +50,7 @@ class _TicketPageState extends State<TicketPage> {
             children: [
               Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.circular(10)),
+                    
                     image: DecorationImage(
                         image: AssetImage("lib/images/Music_Night.png"),
                         fit: BoxFit.cover)),

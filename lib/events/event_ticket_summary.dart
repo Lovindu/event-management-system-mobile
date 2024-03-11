@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/events/event_ticket_confirmation.dart';
 
 class EventTicketSummary extends StatefulWidget {
   const EventTicketSummary({super.key});
@@ -18,7 +19,7 @@ class _EventTicketSummaryState extends State<EventTicketSummary> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
         child: Column(
           children: [
             Container(
@@ -26,7 +27,6 @@ class _EventTicketSummaryState extends State<EventTicketSummary> {
               width: 350,
               decoration: BoxDecoration(
                   border: Border.all(color: Color(0xff4B38AC)),
-                  
                   borderRadius: BorderRadius.circular(10)),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -122,7 +122,7 @@ class _EventTicketSummaryState extends State<EventTicketSummary> {
                   ],
                 )),
             SizedBox(
-              height: 315,
+              height: 345,
             ),
             Container(
               height: 40,
@@ -153,7 +153,10 @@ class _EventTicketSummaryState extends State<EventTicketSummary> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xffFC8E94)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => EvenetTicketConfirmation()));
+                  },
                   child: Text(
                     'Proceed',
                     style: TextStyle(
