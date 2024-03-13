@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/events/button_price.dart';
-
+import 'package:test_app/pages/home.dart';
 
 class Ticket extends StatefulWidget {
   const Ticket({super.key});
@@ -43,14 +43,27 @@ class _TicketPageState extends State<TicketPage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          appBar: AppBar(
-            title: Text('Ticket Information'),
+          floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
+          floatingActionButton: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Home()));
+              },
+              backgroundColor: Colors.transparent,
+              child: Image.asset(
+                'lib/images/back button.png',
+                width: 30,
+              ),
+            ),
           ),
           body: ListView(
             children: [
               Container(
                 decoration: BoxDecoration(
-                    
+                    //color: Color(0xff7270C2),
+                    //borderRadius:BorderRadius.only(bottomLeft: Radius.circular(10)),
                     image: DecorationImage(
                         image: AssetImage("lib/images/Music_Night.png"),
                         fit: BoxFit.cover)),
@@ -105,11 +118,14 @@ class _TicketPageState extends State<TicketPage> {
                       Row(
                         children: [
                           Text(
-                            '20th                            ',
+                            '20th',
                             style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
+                          ),
+                          SizedBox(
+                            width: 100,
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -128,11 +144,14 @@ class _TicketPageState extends State<TicketPage> {
                       Row(
                         children: [
                           Text(
-                            'September                 ',
+                            'September',
                             style: TextStyle(fontSize: 12, color: Colors.grey),
                           ),
+                          SizedBox(
+                            width: 70,
+                          ),
                           Text(
-                            '      5.00PM Onwards',
+                            '5.00PM Onwards',
                             style: TextStyle(fontSize: 12, color: Colors.grey),
                           ),
                         ],

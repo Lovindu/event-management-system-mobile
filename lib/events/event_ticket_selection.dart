@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/events/event_ticket_summary.dart';
+import 'package:test_app/pages/ticket.dart';
 
 class EvenetTicketSelection extends StatefulWidget {
   const EvenetTicketSelection({super.key});
@@ -22,11 +23,31 @@ class _EvenetTicketSelectionState extends State<EvenetTicketSelection> {
             'Select Preferred Ticket \nCategory',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => TicketPage()));
+            },
+            child: Container(
+              alignment: Alignment.center,
+              child: Image.asset(
+                'lib/images/Ellipse 19.png',
+                height: 30,
+                width: 30,
+              ),
+              margin: EdgeInsets.all(10),
+              width: 30,
+              height: 30,
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
+            ),
+          ),
         ),
-        
         body: ListView(
           children: [
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: Container(
@@ -34,9 +55,20 @@ class _EvenetTicketSelectionState extends State<EvenetTicketSelection> {
                     border: Border.all(color: Color(0xff4B38AC)),
                     borderRadius: BorderRadius.circular(10)),
                 child: RadioListTile(
-                  title: Text(
-                    'Category 01                      Rs.1000',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                  title: Row(
+                    children: [
+                      Text(
+                        'Category 01',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        width: 100,
+                      ),
+                      Text(
+                        'Rs.1000',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   ),
                   subtitle: Text(
                     'Additional Information',
@@ -59,9 +91,20 @@ class _EvenetTicketSelectionState extends State<EvenetTicketSelection> {
                     border: Border.all(color: Color(0xff4B38AC)),
                     borderRadius: BorderRadius.circular(10)),
                 child: RadioListTile(
-                  title: Text(
-                    'Category 02                      Rs.2000',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                  title: Row(
+                    children: [
+                      Text(
+                        'Category 02',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        width: 100,
+                      ),
+                      Text(
+                        'Rs.2000',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   ),
                   subtitle: Text(
                     'Additional Information',
@@ -84,9 +127,20 @@ class _EvenetTicketSelectionState extends State<EvenetTicketSelection> {
                     border: Border.all(color: Color(0xff4B38AC)),
                     borderRadius: BorderRadius.circular(10)),
                 child: RadioListTile(
-                  title: Text(
-                    'Category 03                      Rs.3000',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                  title: Row(
+                    children: [
+                      Text(
+                        'Category 03',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        width: 100,
+                      ),
+                      Text(
+                        'Rs.3000',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   ),
                   subtitle: Text(
                     'Additional Information',

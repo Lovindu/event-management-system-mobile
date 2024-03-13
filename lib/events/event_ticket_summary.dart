@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/events/event_ticket_confirmation.dart';
+import 'package:test_app/events/event_ticket_selection.dart';
 
 class EventTicketSummary extends StatefulWidget {
   const EventTicketSummary({super.key});
@@ -13,6 +14,28 @@ class _EventTicketSummaryState extends State<EventTicketSummary> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => EvenetTicketSelection()));
+          },
+          child: Container(
+            alignment: Alignment.center,
+            child: Image.asset(
+              'lib/images/Ellipse 19.png',
+              height: 30,
+              width: 30,
+            ),
+            margin: EdgeInsets.all(10),
+            width: 30,
+            height: 30,
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(10)),
+          ),
+        ),
         title: Text(
           'Ticket Summary',
           style: TextStyle(fontWeight: FontWeight.bold),

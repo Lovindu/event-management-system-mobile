@@ -3,6 +3,7 @@ import 'package:test_app/components/event_tile.dart';
 import 'package:test_app/events/event1.dart';
 import 'package:test_app/events/latest_events.dart';
 import 'package:test_app/events/musical_event.dart';
+import 'package:test_app/pages/search_page_with_filters.dart';
 
 class HomeMain extends StatefulWidget {
   HomeMain({super.key});
@@ -44,21 +45,29 @@ class _HomeMainState extends State<HomeMain> {
                 border: Border.all(color: Color(0xff4B38AC)),
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(12)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                  child: Text(
-                    'Search',
-                    style: TextStyle(
-                        color: Colors.grey,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16),
+            child: InkWell(
+              onTap: (){
+                Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FilterSearch()));
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                    child: Text(
+                      'Search',
+                      style: TextStyle(
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16),
+                    ),
                   ),
-                ),
-                Icon(Icons.search, color: Colors.black)
-              ],
+                  Icon(Icons.search, color: Colors.black)
+                ],
+              ),
             ),
           ),
           Padding(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/events/search_events.dart';
+import 'package:test_app/pages/search_page_with_filters.dart';
 
 class Search extends StatefulWidget {
   const Search({super.key});
@@ -24,48 +25,62 @@ class _SearchState extends State<Search> {
           decoration: BoxDecoration(color: Color(0xffECECFE)),
           child: ListView(
             children: [
-              Container(
-              padding: EdgeInsets.all(12),
-              margin: EdgeInsets.symmetric(horizontal: 25),
-              decoration: BoxDecoration(
-                  border: Border.all(color: Color(0xff4B38AC)),
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                    child: Text(
-                      'Search',
-                      style: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FilterSearch()));
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(12),
+                      margin: EdgeInsets.symmetric(horizontal: 25),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Color(0xff4B38AC)),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(20, 0, 30, 0),
+                            child: Text(
+                              'Search',
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16),
+                            ),
+                          ),
+                          Icon(Icons.search, color: Colors.black)
+                        ],
+                      ),
                     ),
                   ),
-                  Icon(Icons.search, color: Colors.black)
+                  /*GestureDetector(
+                    onTap: () {
+                      print('Filters clicked');
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.all(1),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Container(
+                              decoration:
+                                  BoxDecoration(color: Color(0xffECECFE)),
+                              padding: EdgeInsets.only(right: 12),
+                              height: 40,
+                              width: 40,
+                              child: Image.asset(
+                                  'lib/images/icons8-filters-64.png')),
+                        ],
+                      ),
+                    ),
+                  ),*/
                 ],
-              ),
-            ),
-              GestureDetector(
-                onTap: () {
-                  print('Filters clicked');
-                },
-                child: Padding(
-                  padding: EdgeInsets.all(1),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(color: Color(0xffECECFE)),
-                          padding: EdgeInsets.only(right: 12),
-                          height: 40,
-                          width: 40,
-                          child: Image.asset('lib/images/icons8-filters-64.png')),
-                    ],
-                  ),
-                ),
               ),
               SizedBox(
                 height: 10,
@@ -133,7 +148,7 @@ class _SearchState extends State<Search> {
               Padding(
                 padding: EdgeInsets.fromLTRB(15.0, 10.0, 8.0, 4.0),
                 child: Container(
-                  decoration: BoxDecoration(color:Color(0xffECECFE)),
+                  decoration: BoxDecoration(color: Color(0xffECECFE)),
                   height: 200,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
