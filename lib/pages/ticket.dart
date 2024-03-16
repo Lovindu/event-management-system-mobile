@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:readmore/readmore.dart';
 import 'package:test_app/events/button_price.dart';
 import 'package:test_app/pages/home.dart';
 
@@ -38,6 +39,8 @@ class TicketPage extends StatefulWidget {
 }
 
 class _TicketPageState extends State<TicketPage> {
+  String content =
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged... See more';
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -73,25 +76,25 @@ class _TicketPageState extends State<TicketPage> {
               Container(
                 height: 60,
                 width: 100,
-                color: Color(0xff7270C2),
-                child: Column(
+                color: const Color(0xff7270C2),
+                child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 10, 30, 0),
+                        padding: EdgeInsets.fromLTRB(0, 10, 30, 0),
                         child: ButtonPrice() //Button for Prices
                         ),
                   ],
                 ),
               ),
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xff7270C2),
                 ),
                 height: 80,
                 width: 300,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -111,8 +114,8 @@ class _TicketPageState extends State<TicketPage> {
                 ),
               ),
               Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: Column(
                     children: [
                       Row(
@@ -181,9 +184,23 @@ class _TicketPageState extends State<TicketPage> {
                               fontSize: 14,
                               color: Colors.white),
                         ),
-                        Text(
-                          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged... See more',
-                          style: TextStyle(color: Colors.grey, fontSize: 13),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ReadMoreText(
+                            content,
+                            trimLines: 4,
+                            textAlign: TextAlign.justify,
+                            trimMode: TrimMode.Line,
+                            trimCollapsedText: " Show More ",
+                            trimExpandedText: " Show Less ",
+                            lessStyle: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                            moreStyle: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                            style: TextStyle(fontSize: 14, height: 1),
+                          ),
                         )
                       ],
                     ),

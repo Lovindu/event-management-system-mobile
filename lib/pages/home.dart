@@ -56,17 +56,23 @@ class _HomeState extends State<Home> {
               color: Colors.white, borderRadius: BorderRadius.circular(10)),
         ),
         actions: [
-          Container(
-            margin: EdgeInsets.all(10),
-            alignment: Alignment.center,
-            width: 37,
-            child: Image.asset(
-              'lib/images/icons8-male-user-48.png',
-              height: 38,
-              width: 38,
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => Profile()));
+            },
+            child: Container(
+              margin: EdgeInsets.all(10),
+              alignment: Alignment.center,
+              width: 37,
+              child: Image.asset(
+                'lib/images/icons8-male-user-48.png',
+                height: 38,
+                width: 38,
+              ),
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
             ),
-            decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(10)),
           )
         ],
       ),

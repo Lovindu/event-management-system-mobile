@@ -10,6 +10,32 @@ class EventTicketSummary extends StatefulWidget {
 }
 
 class _EventTicketSummaryState extends State<EventTicketSummary> {
+  int _count = 0;
+  double _pricePerItem = 2000.00;
+  double _totalPrice = 0.00;
+
+  void _incrementCount() {
+    setState(() {
+      _count++;
+      _updateTotalPrice();
+    });
+  }
+
+  void _decrementCount() {
+    setState(() {
+      if (_count > 0) {
+        _count--;
+        _updateTotalPrice();
+      }
+    });
+  }
+
+  void _updateTotalPrice() {
+    setState(() {
+      _totalPrice = _count * _pricePerItem;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,7 +138,7 @@ class _EventTicketSummaryState extends State<EventTicketSummary> {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
-                          '                                                 Rs.2000 x 1',
+                          '                                               Rs.2000 x $_count',
                           style: TextStyle(
                               color: Color(0xff4B38AC),
                               fontWeight: FontWeight.bold,
@@ -139,9 +165,13 @@ class _EventTicketSummaryState extends State<EventTicketSummary> {
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
-                      width: 200,
+                      width: 120,
                     ),
-                    Text('+ 1 -')
+                    IconButton(
+                        onPressed: _incrementCount, icon: Icon(Icons.add)),
+                    Text('$_count'),
+                    IconButton(
+                        onPressed: _decrementCount, icon: Icon(Icons.remove)),
                   ],
                 )),
             SizedBox(
@@ -158,10 +188,10 @@ class _EventTicketSummaryState extends State<EventTicketSummary> {
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
-                    width: 230,
+                    width: 200,
                   ),
                   Text(
-                    'Rs.2000',
+                    'Rs.$_totalPrice',
                     style: TextStyle(
                         color: Color(0xff4B38AC),
                         fontWeight: FontWeight.bold,

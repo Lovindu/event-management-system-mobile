@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_app/events/event_ticket_summary.dart';
 
 class EvenetTicketConfirmation extends StatefulWidget {
+  
   const EvenetTicketConfirmation({super.key});
 
   @override

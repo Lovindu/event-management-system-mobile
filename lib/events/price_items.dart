@@ -56,7 +56,7 @@ class PriceItems extends StatelessWidget {
                         width: 70,
                       ),
                       Text(
-                        "RS.1000",
+                        "Rs.1000",
                         style: TextStyle(fontSize: 18, color: Color(0xffFC8E94)),
                       ),
                     ],
@@ -92,7 +92,7 @@ class PriceItems extends StatelessWidget {
                         width: 70,
                       ),
                       Text(
-                        "RS.2000",
+                        "Rs.2000",
                         style: TextStyle(fontSize: 18, color: Color(0xffFC8E94)),
                       ),
                     ],
@@ -127,7 +127,7 @@ class PriceItems extends StatelessWidget {
                         width: 70,
                       ),
                       Text(
-                        "RS.3000",
+                        "Rs.3000",
                         style: TextStyle(fontSize: 18, color: Color(0xffFC8E94)),
                       ),
                     ],
