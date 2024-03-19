@@ -19,7 +19,7 @@ class Event1 {
         name: 'Test2',
         imagePath: 'lib/images/Group 7 (2).png'));
       categories.add(Event1(
-        name: 'Test2',
+        name: 'Test3',
         imagePath: 'lib/images/Group 7 (2).png'));
     return categories;
   }

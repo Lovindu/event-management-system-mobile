@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/events/event_ticket_summary.dart';
+import 'package:test_app/pages/event_ticket_summary.dart';
 
 class EvenetTicketConfirmation extends StatefulWidget {
-  
-  const EvenetTicketConfirmation({super.key});
+  double total;
+  EvenetTicketConfirmation({super.key, required this.total});
 
   @override
   State<EvenetTicketConfirmation> createState() =>
@@ -18,6 +18,7 @@ class _EvenetTicketSelectionState extends State<EvenetTicketConfirmation> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'Poppins'),
       home: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -26,10 +27,7 @@ class _EvenetTicketSelectionState extends State<EvenetTicketConfirmation> {
           ),
           leading: GestureDetector(
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => EventTicketSummary()));
+              Navigator.pop(context);
             },
             child: Container(
               alignment: Alignment.center,
@@ -46,12 +44,12 @@ class _EvenetTicketSelectionState extends State<EvenetTicketConfirmation> {
             ),
           ),
         ),
-        body: ListView(
+        body: Column(
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                height: 355,
+                height: 335,
                 width: 350,
                 decoration: BoxDecoration(
                     border: Border.all(color: Color(0xff4B38AC)),
@@ -123,7 +121,7 @@ class _EvenetTicketSelectionState extends State<EvenetTicketConfirmation> {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            '------------------------------------------------',
+                            '-------------------------------',
                             style: TextStyle(
                                 color: Color(0xff4B38AC),
                                 fontWeight: FontWeight.bold,
@@ -151,7 +149,7 @@ class _EvenetTicketSelectionState extends State<EvenetTicketConfirmation> {
                             ],
                           ),
                           SizedBox(
-                            width: 170,
+                            width: 130,
                           ),
                           Row(
                             children: [
@@ -179,12 +177,12 @@ class _EvenetTicketSelectionState extends State<EvenetTicketConfirmation> {
                             ],
                           ),
                           SizedBox(
-                            width: 207,
+                            width: 169,
                           ),
                           Row(
                             children: [
                               Text(
-                                'Rs.0',
+                                'Rs.100',
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold),
@@ -197,7 +195,7 @@ class _EvenetTicketSelectionState extends State<EvenetTicketConfirmation> {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            '------------------------------------------------',
+                            '-------------------------------',
                             style: TextStyle(
                                 color: Color(0xff4B38AC),
                                 fontWeight: FontWeight.bold,
@@ -206,7 +204,7 @@ class _EvenetTicketSelectionState extends State<EvenetTicketConfirmation> {
                         ],
                       ),
                       SizedBox(
-                        height: 100,
+                        height: 75,
                       ),
                       Row(
                         children: [
@@ -223,13 +221,13 @@ class _EvenetTicketSelectionState extends State<EvenetTicketConfirmation> {
                             ],
                           ),
                           SizedBox(
-                            width: 240,
+                            width: 175,
                           ),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Text(
-                                'Rs.2000',
+                                'Rs.${widget.total}',
                                 style: TextStyle(
                                     color: Color(0xff4B38AC),
                                     fontWeight: FontWeight.bold,
@@ -245,10 +243,15 @@ class _EvenetTicketSelectionState extends State<EvenetTicketConfirmation> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
-              child: Text(
-                'How to pick up the Ticket',
-                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),
+              padding: const EdgeInsets.fromLTRB(12, 10, 0, 0),
+              child: Row(
+                children: [
+                  Text(
+                    'How to pick up the Ticket',
+                    style:
+                        TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),
+                  ),
+                ],
               ),
             ),
             RadioListTile(
@@ -287,27 +290,44 @@ class _EvenetTicketSelectionState extends State<EvenetTicketConfirmation> {
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 5),
-              child: Text(
-                'Instructions',
-                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),
+              child: Row(
+                children: [
+                  Text(
+                    'Instructions',
+                    style:
+                        TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),
+                  ),
+                ],
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 0, 0, 5),
-              child: Text(
-                '• Instruction 01',
-                style: TextStyle(
-                  color: Colors.black,
-                ),
+              child: Row(
+                children: [
+                  Text(
+                    '• Instruction 01',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 0, 0, 5),
-              child: Text('• Instruction 02'),
+              child: Row(
+                children: [
+                  Text('• Instruction 02'),
+                ],
+              ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: Text('• Instruction 03'),
+              child: Row(
+                children: [
+                  Text('• Instruction 03'),
+                ],
+              ),
             ),
             SizedBox(
               height: 10,

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/components/bottom_nav_bar.dart';
 import 'package:test_app/pages/home_main.dart';
+import 'package:test_app/pages/main_profile.dart';
 import 'package:test_app/pages/profile.dart';
+import 'package:test_app/pages/reminder.dart';
 import 'package:test_app/pages/search.dart';
 import 'package:test_app/pages/ticket.dart';
 
@@ -44,22 +46,28 @@ class _HomeState extends State<Home> {
         centerTitle: true,
         backgroundColor: Color(0xffECECFE),
         elevation: 0,
-        leading: Container(
-          margin: EdgeInsets.all(10),
-          alignment: Alignment.center,
-          child: Image.asset(
-            'lib/images/icons8-bell-50.png',
-            height: 30,
-            width: 30,
+        leading: GestureDetector(
+          onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => Reminder()));
+            },
+          child: Container(
+            margin: EdgeInsets.all(10),
+            alignment: Alignment.center,
+            child: Image.asset(
+              'lib/images/icons8-bell-50.png',
+              height: 30,
+              width: 30,
+            ),
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(10)),
           ),
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(10)),
         ),
         actions: [
           GestureDetector(
             onTap: () {
               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => Profile()));
+                  .push(MaterialPageRoute(builder: (context) => MainProfile()));
             },
             child: Container(
               margin: EdgeInsets.all(10),

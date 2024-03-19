@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/events/event_ticket_selection.dart';
+import 'package:test_app/pages/event_ticket_selection.dart';
 
 class PriceItems extends StatelessWidget {
   const PriceItems({super.key});
@@ -53,7 +53,7 @@ class PriceItems extends StatelessWidget {
                         style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                       SizedBox(
-                        width: 70,
+                        width: 55,
                       ),
                       Text(
                         "Rs.1000",
@@ -89,7 +89,7 @@ class PriceItems extends StatelessWidget {
                         style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                        SizedBox(
-                        width: 70,
+                        width: 50,
                       ),
                       Text(
                         "Rs.2000",
@@ -124,7 +124,7 @@ class PriceItems extends StatelessWidget {
                         style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                        SizedBox(
-                        width: 70,
+                        width: 50,
                       ),
                       Text(
                         "Rs.3000",

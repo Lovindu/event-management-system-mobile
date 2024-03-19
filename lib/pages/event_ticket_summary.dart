@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/events/event_ticket_confirmation.dart';
-import 'package:test_app/events/event_ticket_selection.dart';
+import 'package:test_app/pages/event_ticket_confirmation.dart';
+import 'package:test_app/pages/event_ticket_selection.dart';
 
 class EventTicketSummary extends StatefulWidget {
-  const EventTicketSummary({super.key});
+  final double selectedOption;
+  const EventTicketSummary({super.key, required this.selectedOption});
 
   @override
   State<EventTicketSummary> createState() => _EventTicketSummaryState();
@@ -11,13 +12,16 @@ class EventTicketSummary extends StatefulWidget {
 
 class _EventTicketSummaryState extends State<EventTicketSummary> {
   int _count = 0;
-  double _pricePerItem = 2000.00;
   double _totalPrice = 0.00;
+  late double selectedOption;
+  double bookingFee = 100;
+  double withbookingfee = 0;
 
   void _incrementCount() {
     setState(() {
       _count++;
       _updateTotalPrice();
+      _withBookingFee();
     });
   }
 
@@ -26,14 +30,27 @@ class _EventTicketSummaryState extends State<EventTicketSummary> {
       if (_count > 0) {
         _count--;
         _updateTotalPrice();
+        _withBookingFee();
       }
     });
   }
 
   void _updateTotalPrice() {
     setState(() {
-      _totalPrice = _count * _pricePerItem;
+      _totalPrice = (_count * selectedOption);
     });
+  }
+
+  void _withBookingFee() {
+    setState(() {
+      withbookingfee = bookingFee + _totalPrice;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    selectedOption = widget.selectedOption;
   }
 
   @override
@@ -137,8 +154,11 @@ class _EventTicketSummaryState extends State<EventTicketSummary> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
+                        SizedBox(
+                          width: 206,
+                        ),
                         Text(
-                          '                                               Rs.2000 x $_count',
+                          '$selectedOption x $_count',
                           style: TextStyle(
                               color: Color(0xff4B38AC),
                               fontWeight: FontWeight.bold,
@@ -165,13 +185,15 @@ class _EventTicketSummaryState extends State<EventTicketSummary> {
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
-                      width: 120,
+                      width: 95,
                     ),
                     IconButton(
-                        onPressed: _incrementCount, icon: Icon(Icons.add)),
+                        onPressed: _decrementCount,
+                        icon: Icon(Icons.remove_circle_outline)),
                     Text('$_count'),
                     IconButton(
-                        onPressed: _decrementCount, icon: Icon(Icons.remove)),
+                        onPressed: _incrementCount,
+                        icon: Icon(Icons.add_circle_outline)),
                   ],
                 )),
             SizedBox(
@@ -188,7 +210,7 @@ class _EventTicketSummaryState extends State<EventTicketSummary> {
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
-                    width: 200,
+                    width: 180,
                   ),
                   Text(
                     'Rs.$_totalPrice',
@@ -208,7 +230,9 @@ class _EventTicketSummaryState extends State<EventTicketSummary> {
                       backgroundColor: Color(0xffFC8E94)),
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => EvenetTicketConfirmation()));
+                        builder: (context) => EvenetTicketConfirmation(
+                              total: withbookingfee,
+                            )));
                   },
                   child: Text(
                     'Proceed',

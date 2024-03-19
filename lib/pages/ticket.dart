@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
 import 'package:test_app/events/button_price.dart';
+import 'package:test_app/events/tickets_card.dart';
 import 'package:test_app/pages/home.dart';
+import 'package:test_app/pages/tickets_information.dart';
 
 class Ticket extends StatefulWidget {
   const Ticket({super.key});
@@ -14,20 +16,51 @@ class _TicketState extends State<Ticket> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          body: Center(
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (BuildContext context) {
-                  return TicketPage();
-                }));
-              },
-              child: Text('Hello'),
-            ),
-          ),
-        ));
+      theme: ThemeData(fontFamily: 'Poppins'),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Color(0xffECECFE),
+        body: ListView(
+          children: [
+            SafeArea(
+                child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Row(
+                    children: [
+                      Text(
+                        'Your Tickets',
+                        style: TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => TicketInfo()));
+                    },
+                    child: TCard()),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => TicketInfo()));
+                    },
+                    child: TCard()),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => TicketInfo()));
+                    },
+                    child: TCard()),
+              ],
+            )),
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -45,6 +78,7 @@ class _TicketPageState extends State<TicketPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'Poppins'),
       home: Scaffold(
           floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
           floatingActionButton: Padding(
@@ -74,20 +108,6 @@ class _TicketPageState extends State<TicketPage> {
                 width: 500,
               ),
               Container(
-                height: 60,
-                width: 100,
-                color: const Color(0xff7270C2),
-                child: const Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Padding(
-                        padding: EdgeInsets.fromLTRB(0, 10, 30, 0),
-                        child: ButtonPrice() //Button for Prices
-                        ),
-                  ],
-                ),
-              ),
-              Container(
                 decoration: const BoxDecoration(
                   color: Color(0xff7270C2),
                 ),
@@ -98,12 +118,23 @@ class _TicketPageState extends State<TicketPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Event Name',
-                        style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
+                      Row(
+                        children: [
+                          Text(
+                            'Event Name',
+                            style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                          SizedBox(
+                            width: 45,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(0),
+                            child: ButtonPrice(),
+                          )
+                        ],
                       ),
                       Text(
                         'Colombo,Sri Lanka',
@@ -169,7 +200,7 @@ class _TicketPageState extends State<TicketPage> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Container(
-                  height: 170,
+                  height: 180,
                   width: 400,
                   color: Color(0xff7270C2),
                   child: Padding(
@@ -199,7 +230,8 @@ class _TicketPageState extends State<TicketPage> {
                             moreStyle: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
-                            style: TextStyle(fontSize: 14, height: 1),
+                            style: TextStyle(
+                                fontSize: 14, height: 1, color: Colors.grey),
                           ),
                         )
                       ],
@@ -289,7 +321,7 @@ class _TicketPageState extends State<TicketPage> {
                 ),
               ),
               Container(
-                height: 176,
+                height: 196,
                 width: 200,
                 color: Color(0xff7270C2),
                 child: Padding(

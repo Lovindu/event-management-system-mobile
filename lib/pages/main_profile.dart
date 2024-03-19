@@ -5,52 +5,39 @@ import 'package:test_app/events/user_preferences.dart';
 import 'package:test_app/events/user_profile.dart';
 import 'package:test_app/pages/editing_profile_page.dart';
 
-class Profile extends StatefulWidget {
-  const Profile({super.key});
+class MainProfile extends StatefulWidget {
+  const MainProfile({super.key});
 
   @override
-  State<Profile> createState() => _ProfileState();
+  State<MainProfile> createState() => _ProfileState();
 }
 
-class _ProfileState extends State<Profile> {
-  void _logOut() {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text(
-              'Logout?',
-              style: TextStyle(color: Colors.white),
-            ),
-            content: Text(
-              'Do you want to log out?',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-            ),
-            elevation: 24.0,
-            icon: Icon(Icons.logout),
-            iconColor: Colors.white,
-            backgroundColor: Color(0xff7270C2),
-            actions: [
-              MaterialButton(
-                  child: Text('Ok',style: TextStyle(color: Colors.white),),
-                  onPressed: () {
-                    print("Clicked");
-                  }),
-              MaterialButton(
-                  child: Text('Cancel',style: TextStyle(color: Colors.white),),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  })
-            ],
-          );
-        });
-  }
-
+class _ProfileState extends State<MainProfile> {
   @override
   Widget build(BuildContext context) {
     final user = UserPreferences.myUser;
-
     return Scaffold(
+      appBar: AppBar(
+      backgroundColor: Color(0xffECECFE),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.of(context).pop();
+          },
+          child: Container(
+            alignment: Alignment.center,
+            child: Image.asset(
+              'lib/images/Ellipse 19.png',
+              height: 30,
+              width: 30,
+            ),
+            margin: EdgeInsets.all(10),
+            width: 30,
+            height: 30,
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(10)),
+          ),
+        ),
+      ),
       backgroundColor: Color(0xffECECFE),
       body: ListView(
         physics: BouncingScrollPhysics(),
@@ -160,23 +147,7 @@ class _ProfileState extends State<Profile> {
                 SizedBox(
                   height: 20,
                 ),
-                Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Container(
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xffFC8E94)),
-                      onPressed: _logOut,
-                      child: Text(
-                        'Log Out',
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                ),
+                
               ],
             ),
           ],

@@ -3,7 +3,7 @@ import 'package:test_app/events/user_preferences.dart';
 import 'package:test_app/pages/editing_profile_page.dart';
 import 'package:test_app/pages/home.dart';
 
-void main()  {
+void main() {
   //WidgetsFlutterBinding.ensureInitialized();
   //await UserPreferences.init();
   runApp(MyApp());
@@ -14,8 +14,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'Poppins'),
       home: Home(),
-      );
+    );
   }
 }

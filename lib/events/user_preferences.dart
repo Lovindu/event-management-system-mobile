@@ -7,10 +7,10 @@ class UserPreferences {
   //static const _keyUser = 'user';
   static const myUser = User(
      imagePath:
-          'https://imgv3.fotor.com/images/slider-image/Female-portrait-picture-enhanced-with-better-clarity-and-higher-quality-using-Fotors-free-online-AI-photo-enhancer.jpg',
-      name: 'Tharusha Vihanga',
+          'https://static-00.iconduck.com/assets.00/profile-circle-icon-2048x2048-cqe5466q.png',
+      name: 'User Name',
       email: 'tharusha@gmail.com',
-      address: '122/2L Pushparama Road,Kadawatha',
+      address: '122/2L Pushparama ,Kadawatha',
       contactno: '0701251673');
 
   /*static Future init() async =>

@@ -30,11 +30,8 @@ class _FilterSearchState extends State<FilterSearch> {
                 child: Row(
                   children: [
                     InkWell(
-                      onTap: (){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Home()));
+                      onTap: () {
+                        Navigator.pop(context);
                       },
                       child: Container(
                         alignment: Alignment.center,

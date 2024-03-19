@@ -8,16 +8,27 @@ class ButtonPrice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => showPopover(context: context, bodyBuilder: (context)=>PriceItems(),
-      width: 280,
-      height: 270,
-      backgroundColor: Colors.white,
-      direction: PopoverDirection.bottom),
-      
+      onTap: () => showPopover(
+          context: context,
+          bodyBuilder: (context) => PriceItems(),
+          width: 280,
+          height: 270,
+          backgroundColor: Colors.white,
+          direction: PopoverDirection.bottom),
       child: Container(
-        height: 40,
-        child: Image.asset('lib/images/Rectangle 79 (1).png'),
-      ),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            color: Color(0xffFC8E94),
+          ),
+          height: 44,
+          width: 180,
+          child: Text(
+            'Buy Tickets',
+            style: TextStyle(
+                fontSize: 22, fontWeight: FontWeight.w600, color: Colors.white),
+          ),
+        ),
       
     );
   }
