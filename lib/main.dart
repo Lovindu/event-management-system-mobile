@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/events/user_preferences.dart';
-import 'package:test_app/pages/editing_profile_page.dart';
-import 'package:test_app/pages/home.dart';
 
 void main() {
-  //WidgetsFlutterBinding.ensureInitialized();
-  //await UserPreferences.init();
-  runApp(MyApp());
+  runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Poppins'),
-      home: Home(),
+      home: MyApp(),
     );
   }
 }
