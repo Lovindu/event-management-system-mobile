@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:test_app/Sign.dart';
 import 'package:test_app/login.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Loading extends StatelessWidget {
+  const Loading({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF7270C2),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -26,9 +27,9 @@ class MyApp extends StatelessWidget {
           SizedBox(height: 20),
           Center(
             child: Container(
-              padding: EdgeInsets.only(right: 30, left: 30, top: 10),
+              padding: EdgeInsets.only(right: 30, left: 50, top: 10),
               child: Text(
-                'Unlock unforgettable experiences with just a tap - your journey starts\n                          here!',
+                'Unlock unforgettable experiences with just a tap - your journey starts here!',
                 style: TextStyle(fontSize: 20),
               ),
             ),
@@ -44,7 +45,10 @@ class MyApp extends StatelessWidget {
                     .push(MaterialPageRoute(builder: (context) => LoginPage()));
               },
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 50),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 50,
+                  vertical: 10,
+                ),
                 child: Text(
                   'LOGIN',
                   style: TextStyle(fontSize: 20),
@@ -61,7 +65,10 @@ class MyApp extends StatelessWidget {
                     .push(MaterialPageRoute(builder: (context) => SignUp()));
               },
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 50),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 50,
+                  vertical: 10,
+                ),
                 child: Text(
                   'SIGN UP',
                   style: TextStyle(fontSize: 20),

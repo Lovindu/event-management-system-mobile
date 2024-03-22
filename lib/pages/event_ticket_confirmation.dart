@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/pages/event_ticket_summary.dart';
 
 class EvenetTicketConfirmation extends StatefulWidget {
   double total;

@@ -1,13 +1,8 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:test_app/events/button_widget.dart';
 import 'package:test_app/events/profile_widget.dart';
 import 'package:test_app/events/text_field_widget.dart';
 import 'package:test_app/events/user_preferences.dart';
 import 'package:test_app/events/user_profile.dart';
-import 'package:path/path.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({super.key});
@@ -100,7 +95,10 @@ class _EditProfileState extends State<EditProfile> {
                 height: 24,
               ),
               ElevatedButton(
-                child: Text('Save',style: TextStyle(fontWeight: FontWeight.bold),),
+                child: Text(
+                  'Save',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xffFC8E94),
                   foregroundColor: Colors.white,

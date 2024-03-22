@@ -13,6 +13,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF4B38AC),
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
       floatingActionButton: Padding(
         padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
@@ -73,12 +74,14 @@ class _SignUpState extends State<SignUp> {
               ),
               child: TextFormField(
                 decoration: InputDecoration(
-                    hintText: 'Username',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 10, horizontal: 10)),
+                  hintText: 'Username',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  filled: true,
+                ),
               ),
             ),
             SizedBox(height: 10),
@@ -100,12 +103,14 @@ class _SignUpState extends State<SignUp> {
               ),
               child: TextFormField(
                 decoration: InputDecoration(
-                    hintText: 'Enter your email',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 10, horizontal: 10)),
+                  hintText: 'Enter your email',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  filled: true,
+                ),
               ),
             ),
             SizedBox(height: 10),
@@ -126,12 +131,14 @@ class _SignUpState extends State<SignUp> {
               ),
               child: TextFormField(
                 decoration: InputDecoration(
-                    hintText: 'Enter your password',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 10, horizontal: 10)),
+                  hintText: 'Enter your password',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  filled: true,
+                ),
               ),
             ),
             SizedBox(height: 10),

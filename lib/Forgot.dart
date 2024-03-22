@@ -14,6 +14,7 @@ class _ForgotState extends State<Forgot> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Color(0xFF4B38AC),
         floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
         floatingActionButton: Padding(
           padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
@@ -73,12 +74,14 @@ class _ForgotState extends State<Forgot> {
                 ),
                 child: TextFormField(
                   decoration: InputDecoration(
-                      hintText: 'Enter your old password',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 10)),
+                    hintText: 'Enter your old password',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                    filled: true,
+                  ),
                 ),
               ),
               SizedBox(height: 10),
@@ -100,12 +103,14 @@ class _ForgotState extends State<Forgot> {
                 ),
                 child: TextFormField(
                   decoration: InputDecoration(
-                      hintText: 'Enter your new passowrd',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 10)),
+                    hintText: 'Enter your new passowrd',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                    filled: true,
+                  ),
                 ),
               ),
               SizedBox(height: 10),
@@ -127,12 +132,14 @@ class _ForgotState extends State<Forgot> {
                 ),
                 child: TextFormField(
                   decoration: InputDecoration(
-                      hintText: 'Confirm your password',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 10)),
+                    hintText: 'Confirm your password',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                    filled: true,
+                  ),
                 ),
               ),
               SizedBox(

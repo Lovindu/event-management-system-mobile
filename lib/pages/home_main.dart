@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/components/event_tile.dart';
 import 'package:test_app/events/event1.dart';
 import 'package:test_app/events/latest_events.dart';
 import 'package:test_app/events/musical_event.dart';
@@ -172,10 +171,9 @@ class _HomeMainState extends State<HomeMain> {
                 ),
                 itemBuilder: (context, index) {
                   return InkWell(
-                      onTap:
-                      () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => TicketPage()));
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => TicketPage()));
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -282,17 +280,17 @@ class _HomeMainState extends State<HomeMain> {
                               child: Image.asset(musical[index].imagePath)),
                         ),
                         Padding(
-                            padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  latest[index].name,
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
+                          padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                latest[index].name,
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ],
                           ),
+                        ),
                       ],
                     ),
                   );

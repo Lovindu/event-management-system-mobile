@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_app/Forgot.dart';
 import 'package:test_app/Sign.dart';
 import 'package:test_app/main.dart';
+import 'package:test_app/pages/home.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -15,6 +16,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF4B38AC),
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
       floatingActionButton: Padding(
         padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
@@ -81,12 +83,15 @@ class _LoginPageState extends State<LoginPage> {
               ),
               child: TextFormField(
                 decoration: InputDecoration(
-                    hintText: 'Enter your email',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 10, horizontal: 10)),
+                  hintText: 'Enter your email',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  filled: true,
+                  //fillColor: Color(0xFF7270C2),
+                ),
               ),
             ),
             SizedBox(height: 10),
@@ -108,12 +113,14 @@ class _LoginPageState extends State<LoginPage> {
               ),
               child: TextFormField(
                 decoration: InputDecoration(
-                    hintText: 'Enter your Password',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 10, horizontal: 10)),
+                  hintText: 'Enter your Password',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  filled: true,
+                ),
               ),
             ),
             SizedBox(height: 3),
@@ -153,7 +160,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   SizedBox(
-                    width: 128,
+                    width: 100,
                   ),
                   GestureDetector(
                     onTap: () {
@@ -173,7 +180,14 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Home(),
+                    ),
+                  );
+                },
                 child: Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 80.0, vertical: 5),
