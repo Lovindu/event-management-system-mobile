@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/events/search_events.dart';
 import 'package:test_app/pages/search_page_with_filters.dart';
+import 'package:test_app/pages/ticket.dart';
 
 class Search extends StatefulWidget {
   const Search({super.key});
@@ -90,28 +91,34 @@ class _SearchState extends State<Search> {
                 child: Container(
                   decoration: BoxDecoration(color: Color(0xffECECFE)),
                   height: 200,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(5),
-                        child: Container(
-                          height: 100,
-                          width: 170,
-                          color: Color(0xffECECFE),
-                          child: Image.asset('lib/images/8548949 3 (1).png'),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => TicketPage()));
+                    },
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Container(
+                            height: 100,
+                            width: 170,
+                            color: Color(0xffECECFE),
+                            child: Image.asset('lib/images/8548949 3 (1).png'),
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(5),
-                        child: Container(
-                          height: 100,
-                          width: 170,
-                          color: Color(0xffECECFE),
-                          child: Image.asset('lib/images/8548949 3 (1).png'),
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Container(
+                            height: 100,
+                            width: 170,
+                            color: Color(0xffECECFE),
+                            child: Image.asset('lib/images/1920 1.png'),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -120,28 +127,34 @@ class _SearchState extends State<Search> {
                 child: Container(
                   decoration: BoxDecoration(color: Color(0xffECECFE)),
                   height: 200,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(5),
-                        child: Container(
-                          height: 100,
-                          width: 170,
-                          color: Color(0xffECECFE),
-                          child: Image.asset('lib/images/8548949 3 (1).png'),
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => TicketPage()));
+                    },
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Container(
+                            height: 100,
+                            width: 170,
+                            color: Color(0xffECECFE),
+                            child: Image.asset('lib/images/1920 1.png'),
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(5),
-                        child: Container(
-                          height: 100,
-                          width: 170,
-                          color: Color(0xffECECFE),
-                          child: Image.asset('lib/images/8548949 3 (1).png'),
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Container(
+                            height: 100,
+                            width: 170,
+                            color: Color(0xffECECFE),
+                            child: Image.asset('lib/images/8548949 3 (1).png'),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -150,28 +163,34 @@ class _SearchState extends State<Search> {
                 child: Container(
                   decoration: BoxDecoration(color: Color(0xffECECFE)),
                   height: 200,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(5),
-                        child: Container(
-                          height: 100,
-                          width: 170,
-                          color: Color(0xffECECFE),
-                          child: Image.asset('lib/images/8548949 3 (1).png'),
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => TicketPage()));
+                    },
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Container(
+                            height: 100,
+                            width: 170,
+                            color: Color(0xffECECFE),
+                            child: Image.asset('lib/images/8548949 3 (1).png'),
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(5),
-                        child: Container(
-                          height: 100,
-                          width: 170,
-                          color: Color(0xffECECFE),
-                          child: Image.asset('lib/images/8548949 3 (1).png'),
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Container(
+                            height: 100,
+                            width: 170,
+                            color: Color(0xffECECFE),
+                            child: Image.asset('lib/images/1920 1.png'),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -180,28 +199,34 @@ class _SearchState extends State<Search> {
                 child: Container(
                   decoration: BoxDecoration(color: Color(0xffECECFE)),
                   height: 200,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(5),
-                        child: Container(
-                          height: 100,
-                          width: 170,
-                          color: Color(0xffECECFE),
-                          child: Image.asset('lib/images/8548949 3 (1).png'),
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => TicketPage()));
+                    },
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Container(
+                            height: 100,
+                            width: 170,
+                            color: Color(0xffECECFE),
+                            child: Image.asset('lib/images/1920 1.png'),
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(5),
-                        child: Container(
-                          height: 100,
-                          width: 170,
-                          color: Color(0xffECECFE),
-                          child: Image.asset('lib/images/8548949 3 (1).png'),
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Container(
+                            height: 100,
+                            width: 170,
+                            color: Color(0xffECECFE),
+                            child: Image.asset('lib/images/8548949 3 (1).png'),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),

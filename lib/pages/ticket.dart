@@ -85,8 +85,8 @@ class _TicketPageState extends State<TicketPage> {
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: FloatingActionButton(
               onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Home()));
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Home()));
               },
               backgroundColor: Colors.transparent,
               child: Image.asset(

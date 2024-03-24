@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 class MusicalEvent {
   String name;
@@ -14,12 +13,15 @@ class MusicalEvent {
 
     musical.add(MusicalEvent(
         name: 'Test1',
-        imagePath: 'lib/images/8548949 3 (1).png'));
+        imagePath: 'lib/images/1920 1.png'));
      musical.add(MusicalEvent(
         name: 'Test2',
         imagePath: 'lib/images/8548949 3 (1).png'));
       musical.add(MusicalEvent(
         name: 'Test3',
+        imagePath: 'lib/images/1920 1.png'));
+      musical.add(MusicalEvent(
+        name: 'Test4',
         imagePath: 'lib/images/8548949 3 (1).png'));
    
     return musical;

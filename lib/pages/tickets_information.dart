@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/pages/home.dart';
-import 'package:test_app/pages/ticket.dart';
+
 
 class TicketInfo extends StatefulWidget {
   const TicketInfo({super.key});

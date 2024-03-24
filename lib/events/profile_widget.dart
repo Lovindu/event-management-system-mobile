@@ -1,6 +1,4 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:test_app/events/user_profile.dart';
 
 class ProfileWidget extends StatelessWidget {
   final String imagePath;

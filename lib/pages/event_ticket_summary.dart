@@ -16,6 +16,7 @@ class _EventTicketSummaryState extends State<EventTicketSummary> {
   late double selectedOption;
   double bookingFee = 100;
   double withbookingfee = 0;
+ 
 
   void _incrementCount() {
     setState(() {
@@ -55,6 +56,7 @@ class _EventTicketSummaryState extends State<EventTicketSummary> {
 
   @override
   Widget build(BuildContext context) {
+    String withBookingFeeString = withbookingfee.toString();
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -231,7 +233,8 @@ class _EventTicketSummaryState extends State<EventTicketSummary> {
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => EvenetTicketConfirmation(
-                              total: withbookingfee,
+                              total: withBookingFeeString,selectedOption: selectedOption,
+                              count: _count,
                             )));
                   },
                   child: Text(

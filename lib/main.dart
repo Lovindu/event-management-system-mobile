@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/events/user_preferences.dart';
-import 'package:test_app/pages/editing_profile_page.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:test_app/components/app_constatnts.dart';
+import 'package:test_app/events/splash_screen.dart';
 import 'package:test_app/pages/home.dart';
+import 'package:test_app/pages/loading.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:test_app/pages/login.dart';
+import 'package:test_app/pages/sign_up.dart';
+import 'firebase_options.dart';
 
-void main() {
-  //WidgetsFlutterBinding.ensureInitialized();
+Future<void> main() async {
+  Stripe.publishableKey = publishableKey;
+  WidgetsFlutterBinding.ensureInitialized();
   //await UserPreferences.init();
-  runApp(MyApp());
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +27,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Poppins'),
-      home: Home(),
+      routes: {
+        '/': (context) => SplashScreen(
+              child: Loading(),
+            ),
+        '/login': (context) => LoginPage(),
+        '/signUp': (context) => SignUp(),
+        '/home': (context) => Home(),
+      },
     );
   }
 }

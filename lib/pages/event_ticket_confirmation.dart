@@ -1,9 +1,18 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:test_app/pages/event_ticket_summary.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:test_app/components/app_constatnts.dart';
+import 'package:http/http.dart' as http;
 
 class EvenetTicketConfirmation extends StatefulWidget {
-  double total;
-  EvenetTicketConfirmation({super.key, required this.total});
+  String total;
+  final double selectedOption;
+  final int count;
+  EvenetTicketConfirmation(
+      {super.key,
+      required this.total,
+      required this.selectedOption,
+      required this.count});
 
   @override
   State<EvenetTicketConfirmation> createState() =>
@@ -13,6 +22,8 @@ class EvenetTicketConfirmation extends StatefulWidget {
 List<String> options = ['options 1', 'options 2'];
 
 class _EvenetTicketSelectionState extends State<EvenetTicketConfirmation> {
+  Map<String, dynamic>? paymentIntent;
+
   String currentOption = options[0];
   @override
   Widget build(BuildContext context) {
@@ -139,9 +150,9 @@ class _EvenetTicketSelectionState extends State<EvenetTicketConfirmation> {
                                     color: Colors.grey,
                                     fontWeight: FontWeight.bold),
                               ),
-                              SizedBox(width: 10.0),
+                              SizedBox(width: 5.0),
                               Text(
-                                'x 1',
+                                'x${widget.count}',
                                 style: TextStyle(
                                     color: Colors.grey,
                                     fontWeight: FontWeight.bold),
@@ -149,12 +160,12 @@ class _EvenetTicketSelectionState extends State<EvenetTicketConfirmation> {
                             ],
                           ),
                           SizedBox(
-                            width: 130,
+                            width: 120,
                           ),
                           Row(
                             children: [
                               Text(
-                                'Rs.2000',
+                                'Rs.${widget.selectedOption}',
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold),
@@ -177,12 +188,12 @@ class _EvenetTicketSelectionState extends State<EvenetTicketConfirmation> {
                             ],
                           ),
                           SizedBox(
-                            width: 169,
+                            width: 160,
                           ),
                           Row(
                             children: [
                               Text(
-                                'Rs.100',
+                                'Rs.100.0',
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold),
@@ -221,7 +232,7 @@ class _EvenetTicketSelectionState extends State<EvenetTicketConfirmation> {
                             ],
                           ),
                           SizedBox(
-                            width: 175,
+                            width: 170,
                           ),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.end,
@@ -338,7 +349,10 @@ class _EvenetTicketSelectionState extends State<EvenetTicketConfirmation> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xffFC8E94)),
-                  onPressed: () {},
+                  onPressed: () {
+                    makepayment(
+                        amount: "4100", currency: "LKR");
+                  },
                   child: Text(
                     'Proceed to pay',
                     style: TextStyle(
@@ -354,4 +368,58 @@ class _EvenetTicketSelectionState extends State<EvenetTicketConfirmation> {
       ),
     );
   }
+}
+
+Map<String, dynamic> paymentIntentData = {};
+Future<void> makepayment(
+    {required String amount, required String currency}) async {
+  try {
+    paymentIntentData = await createPaymentIntent(amount, currency);
+    if (paymentIntentData != null) {
+      await Stripe.instance.initPaymentSheet(
+          paymentSheetParameters: SetupPaymentSheetParameters(
+              googlePay: PaymentSheetGooglePay(merchantCountryCode: "IN"),
+              merchantDisplayName: "Tharu",
+              customerId: paymentIntentData['customer'],
+              paymentIntentClientSecret: paymentIntentData['client_secret'],
+              customerEphemeralKeySecret: paymentIntentData['ephemeralkey']));
+      displayPaymentSheet();
+    }
+  } catch (e) {
+    print("EXCEPTION======$e");
+  }
+}
+
+createPaymentIntent(String amount, String currency) async {
+  try {
+    Map<String, String> body = {
+      'amount': calculateAmount(amount),
+      'currency': currency,
+      'payment_method_types[]': 'card'
+    };
+    var response = await http.post(
+        Uri.parse(""
+            "https://api.stripe.com/v1/payment_intents"
+            ""),
+        body: body,
+        headers: {
+          "Authorization": "Bearer $secretKey",
+          "Content-type": "application/x-www-form-urlencoded"
+        });
+    return jsonDecode(response.body);
+  } catch (e) {}
+}
+
+Future<void> displayPaymentSheet() async {
+  try {
+    await Stripe.instance.presentPaymentSheet();
+    print("Success payment");
+  } catch (e) {
+    print("EXCEPTION======$e");
+  }
+}
+
+calculateAmount(String amount) {
+  final amountValue = (int.parse(amount)) * 100;
+  return amountValue.toString();
 }

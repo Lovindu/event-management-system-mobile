@@ -1,11 +1,11 @@
-class User {
+class UserPage {
   final String imagePath;
   final String name;
   final String email;
   final String address;
   final String contactno;
 
-  const User({
+  const UserPage({
     required this.imagePath,
     required this.name,
     required this.email,
@@ -13,21 +13,21 @@ class User {
     required this.contactno,
   });
 
-  /*User copy({
+  UserPage copy({
     String? imagePath,
     String? name,
     String? email,
     String? address,
     String? contactno,
   }) =>
-      User(
+      UserPage(
           imagePath: imagePath ?? this.imagePath,
           name: name ?? this.name,
           email: email ?? this.email,
           address: address ?? this.address,
           contactno: contactno ?? this.contactno);
 
-  static User fromJson(Map<String, dynamic> json) => User(
+  static UserPage fromJson(Map<String, dynamic> json) => UserPage(
         imagePath: json['imagePath'],
         name: json['name'],
         email: json['email'],
@@ -41,5 +41,5 @@ class User {
         'email': email,
         'address': address,
         'contactno': contactno,
-      };*/
+      };
 }

@@ -12,7 +12,7 @@ class EvenetTicketSelection extends StatefulWidget {
 List<String> options = ['options 1', 'options 2', 'options 3'];
 
 class _EvenetTicketSelectionState extends State<EvenetTicketSelection> {
-  double selectedOption = 0;
+  double selectedOption = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +76,7 @@ class _EvenetTicketSelectionState extends State<EvenetTicketSelection> {
                     'Additional Information',
                     style: TextStyle(color: Colors.grey),
                   ),
-                  value: 1000,
+                  value: 1000.0,
                   groupValue: selectedOption,
                   onChanged: (value) {
                     setState(() {
@@ -112,7 +112,7 @@ class _EvenetTicketSelectionState extends State<EvenetTicketSelection> {
                     'Additional Information',
                     style: TextStyle(color: Colors.grey),
                   ),
-                  value: 2000,
+                  value: 2000.0,
                   groupValue: selectedOption,
                   onChanged: (value) {
                     setState(() {
@@ -148,7 +148,7 @@ class _EvenetTicketSelectionState extends State<EvenetTicketSelection> {
                     'Additional Information',
                     style: TextStyle(color: Colors.grey),
                   ),
-                  value: 3000,
+                  value: 3000.0,
                   groupValue: selectedOption,
                   onChanged: (value) {
                     setState(() {
@@ -168,14 +168,33 @@ class _EvenetTicketSelectionState extends State<EvenetTicketSelection> {
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xffFC8E94)),
                   onPressed: () {
+                  if (selectedOption == 0.0) {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('Error',style: TextStyle(color: Colors.white),),
+                          backgroundColor: Color(0xff7270C2),
+                          elevation: 24.0,
+                          content: Text('Please select an option',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500),),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text('OK',style: TextStyle(color: Colors.white),),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  } else {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            EventTicketSummary(selectedOption:selectedOption),
-                      ),
+                      MaterialPageRoute(builder: (context) => EventTicketSummary(selectedOption: selectedOption,)),
                     );
-                  },
+                  }
+                },
                   child: Text(
                     'Proceed',
                     style: TextStyle(
