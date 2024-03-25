@@ -1,10 +1,4 @@
-import 'dart:ffi';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:test_app/main.dart';
-import 'package:test_app/pages/home.dart';
-import 'package:test_app/pages/home_main.dart';
 
 class FilterSearch extends StatefulWidget {
   const FilterSearch({super.key});

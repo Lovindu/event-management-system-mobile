@@ -262,43 +262,50 @@ class _HomeMainState extends State<HomeMain> {
               ],
             ),
           ),
-          Container(
-            color: Color(0xffECECFE),
-            height: 286,
-            child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return Container(
-                    width: 195,
-                    decoration: BoxDecoration(),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.asset(musical[index].imagePath)),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                latest[index].name,
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                            ],
+
+          GestureDetector(
+            onTap: (){
+               Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => TicketPage()));
+            },
+            child: Container(
+              color: Color(0xffECECFE),
+              height: 286,
+              child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      width: 195,
+                      decoration: BoxDecoration(),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.asset(musical[index].imagePath)),
                           ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-                separatorBuilder: (context, index) => SizedBox(
-                      width: 2,
-                    ),
-                itemCount: latest.length),
+                          Padding(
+                              padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    latest[index].name,
+                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            ),
+                        ],
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) => SizedBox(
+                        width: 2,
+                      ),
+                  itemCount: latest.length),
+            ),
           ),
         ],
       ),

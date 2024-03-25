@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test_app/events/profile_widget.dart';
 import 'package:test_app/events/user_preferences.dart';
@@ -18,7 +17,7 @@ class _ProfileState extends State<MainProfile> {
     final user = UserPreferences.myUser;
     return Scaffold(
       appBar: AppBar(
-      backgroundColor: Color(0xffECECFE),
+        backgroundColor: Color(0xffECECFE),
         leading: GestureDetector(
           onTap: () {
             Navigator.of(context).pop();
@@ -63,7 +62,7 @@ class _ProfileState extends State<MainProfile> {
     );
   }
 
-  Widget buildName(User user) => Padding(
+  Widget buildName(UserPage user) => Padding(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Column(
           children: [
@@ -147,10 +146,10 @@ class _ProfileState extends State<MainProfile> {
                 SizedBox(
                   height: 20,
                 ),
-                
               ],
             ),
           ],
         ),
       );
 }
+

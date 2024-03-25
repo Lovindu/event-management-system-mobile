@@ -12,7 +12,7 @@ class EditProfile extends StatefulWidget {
 }
 
 class _EditProfileState extends State<EditProfile> {
-  User user = UserPreferences.myUser;
+  UserPage user = UserPreferences.myUser;
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
@@ -65,7 +65,7 @@ class _EditProfileState extends State<EditProfile> {
               TextFieldWidget(
                 label: 'Full Name',
                 text: user.name,
-                onChanged: (name) {},
+                onChanged: (name) => user = user.copy(name: name),
               ),
               const SizedBox(
                 height: 24,
@@ -73,7 +73,7 @@ class _EditProfileState extends State<EditProfile> {
               TextFieldWidget(
                 label: 'Address',
                 text: user.address,
-                onChanged: (address) {},
+                onChanged: (address) => user = user.copy(address: address),
               ),
               const SizedBox(
                 height: 24,
@@ -89,7 +89,7 @@ class _EditProfileState extends State<EditProfile> {
               TextFieldWidget(
                 label: 'Contact Number',
                 text: user.contactno,
-                onChanged: (contactno) {},
+                onChanged: (contactno) => user = user.copy(contactno: contactno),
               ),
               const SizedBox(
                 height: 24,

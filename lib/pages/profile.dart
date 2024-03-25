@@ -1,5 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:test_app/components/show_toast.dart';
 import 'package:test_app/events/profile_widget.dart';
 import 'package:test_app/events/user_preferences.dart';
 import 'package:test_app/events/user_profile.dart';
@@ -13,6 +15,35 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  final User? currentUser = FirebaseAuth.instance.currentUser;
+
+  Future<DocumentSnapshot<Map<String, dynamic>>> getUserDetails() async {
+    return await FirebaseFirestore.instance
+        .collection("Users")
+        .doc(currentUser!.email)
+        .get();
+  }
+
+  final user10 = FirebaseAuth.instance.currentUser!;
+
+  List<String> docIDs = [];
+
+  Future getDocId() async {
+    await FirebaseFirestore.instance
+        .collection("Users10")
+        .get()
+        .then((snapshot) => snapshot.docs.forEach((element) {
+              print(element.reference);
+              docIDs.add(element.reference.id);
+            }));
+  }
+
+  @override
+  void initState() {
+    getDocId();
+    super.initState();
+  }
+
   void _logOut() {
     showDialog(
         context: context,
@@ -32,12 +63,20 @@ class _ProfileState extends State<Profile> {
             backgroundColor: Color(0xff7270C2),
             actions: [
               MaterialButton(
-                  child: Text('Ok',style: TextStyle(color: Colors.white),),
+                  child: Text(
+                    'Ok',
+                    style: TextStyle(color: Colors.white),
+                  ),
                   onPressed: () {
-                    print("Clicked");
+                    FirebaseAuth.instance.signOut();
+                    Navigator.pushNamed(context, "/login");
+                    showToast(message: "User is successfully logged out");
                   }),
               MaterialButton(
-                  child: Text('Cancel',style: TextStyle(color: Colors.white),),
+                  child: Text(
+                    'Cancel',
+                    style: TextStyle(color: Colors.white),
+                  ),
                   onPressed: () {
                     Navigator.pop(context);
                   })
@@ -61,7 +100,7 @@ class _ProfileState extends State<Profile> {
           ProfileWidget(
             imagePath: user.imagePath,
             onClicked: () async {
-              Navigator.of(context).push(
+               Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) => EditProfile()),
               );
               //setState(() {});
@@ -76,12 +115,12 @@ class _ProfileState extends State<Profile> {
     );
   }
 
-  Widget buildName(User user) => Padding(
+  Widget buildName(UserPage user) => Padding(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Column(
           children: [
             Text(
-              user.name,
+              user10.email!,
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 24,
@@ -90,16 +129,41 @@ class _ProfileState extends State<Profile> {
             SizedBox(
               height: 50,
             ),
-            Column(
-              children: [
-                Text(
-                  'Address',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      color: Color(0xff4B38AC)),
-                ),
-              ],
+            Center(
+              child: Column(
+                children: [
+                  Text(
+                    'Name',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Color(0xff4B38AC)),
+                  ),
+                  Text(
+                    user.name,
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w400),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: Column(
+                children: [
+                  Text(
+                    'Address',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Color(0xff4B38AC)),
+                  ),
+                ],
+              ),
             ),
             Row(
               children: [
@@ -114,27 +178,6 @@ class _ProfileState extends State<Profile> {
                         color: Colors.grey,
                         fontWeight: FontWeight.w400),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Column(
-              children: [
-                Text(
-                  'Email',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      color: Color(0xff4B38AC)),
-                ),
-                Text(
-                  user.email,
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w400),
                 ),
               ],
             ),

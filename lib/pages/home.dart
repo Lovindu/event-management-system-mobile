@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:test_app/components/bottom_nav_bar.dart';
 import 'package:test_app/pages/home_main.dart';
 import 'package:test_app/pages/main_profile.dart';
@@ -38,19 +39,19 @@ class _HomeState extends State<Home> {
       ),
       appBar: AppBar(
         title: Text(
-          'Location,City',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
+          'EVENTS.LK',
+          style: GoogleFonts.bungee(
+              textStyle: TextStyle(
+                  color: Color(0xff4B38AC), letterSpacing: 0, fontSize: 30)),
         ),
         centerTitle: true,
         backgroundColor: Color(0xffECECFE),
         elevation: 0,
         leading: GestureDetector(
           onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => Reminder()));
-            },
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => Reminder()));
+          },
           child: Container(
             margin: EdgeInsets.all(10),
             alignment: Alignment.center,

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 class LatestEvent {
   String name;
@@ -17,10 +16,13 @@ class LatestEvent {
         imagePath: 'lib/images/8548949 3 (1).png'));
      latest.add(LatestEvent(
         name: 'Event 2',
-        imagePath: 'lib/images/8548949 3 (1).png'));
+        imagePath: 'lib/images/1920 1.png'));
       latest.add(LatestEvent(
         name: 'Event 3',
         imagePath: 'lib/images/8548949 3 (1).png'));
+      latest.add(LatestEvent(
+        name: 'Event 4',
+        imagePath: 'lib/images/1920 1.png'));
       
     return latest;
   }
