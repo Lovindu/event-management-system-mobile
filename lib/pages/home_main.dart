@@ -171,10 +171,9 @@ class _HomeMainState extends State<HomeMain> {
                 ),
                 itemBuilder: (context, index) {
                   return InkWell(
-                      onTap:
-                      () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => TicketPage()));
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => TicketPage()));
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -263,6 +262,7 @@ class _HomeMainState extends State<HomeMain> {
               ],
             ),
           ),
+
           GestureDetector(
             onTap: (){
                Navigator.of(context)

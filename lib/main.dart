@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:test_app/components/app_constatnts.dart';
 import 'package:test_app/events/splash_screen.dart';
@@ -17,6 +18,7 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());
+
 }
 
 class MyApp extends StatelessWidget {
@@ -27,6 +29,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Poppins'),
+
       routes: {
         '/': (context) => SplashScreen(
               child: Loading(),
@@ -35,6 +38,7 @@ class MyApp extends StatelessWidget {
         '/signUp': (context) => SignUp(),
         '/home': (context) => Home(),
       },
+
     );
   }
 }
