@@ -53,7 +53,7 @@ class PriceItems extends StatelessWidget {
                         style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                       SizedBox(
-                        width: 55,
+                        width: 40,
                       ),
                       Text(
                         "Rs.1000",
@@ -89,7 +89,7 @@ class PriceItems extends StatelessWidget {
                         style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                        SizedBox(
-                        width: 50,
+                        width: 35,
                       ),
                       Text(
                         "Rs.2000",
@@ -98,7 +98,7 @@ class PriceItems extends StatelessWidget {
                     ],
                   ),
               ),
-              height: 50,
+              height: 60,
               width: 300,
             ),
           ),
@@ -124,7 +124,7 @@ class PriceItems extends StatelessWidget {
                         style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                        SizedBox(
-                        width: 50,
+                        width: 30,
                       ),
                       Text(
                         "Rs.3000",

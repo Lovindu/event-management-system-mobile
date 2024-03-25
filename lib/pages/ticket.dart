@@ -111,7 +111,7 @@ class _TicketPageState extends State<TicketPage> {
                 decoration: const BoxDecoration(
                   color: Color(0xff7270C2),
                 ),
-                height: 80,
+                height: 85,
                 width: 300,
                 child: const Padding(
                   padding: EdgeInsets.all(8.0),
@@ -140,6 +140,7 @@ class _TicketPageState extends State<TicketPage> {
                         'Colombo,Sri Lanka',
                         style: TextStyle(fontSize: 14, color: Colors.grey),
                       ),
+                      
                     ],
                   ),
                 ),
@@ -242,7 +243,7 @@ class _TicketPageState extends State<TicketPage> {
               Container(
                 padding: EdgeInsets.all(12),
                 color: Color(0xff7270C2),
-                height: 40,
+                height: 45,
                 width: 100,
                 child: Text(
                   'Artists:',
@@ -253,7 +254,7 @@ class _TicketPageState extends State<TicketPage> {
                 ),
               ),
               Container(
-                height: 108,
+                height: 115,
                 decoration: BoxDecoration(
                     color: Color(0xff7270C2),
                     borderRadius: BorderRadius.circular(0)),
@@ -296,6 +297,7 @@ class _TicketPageState extends State<TicketPage> {
                         Text('Artist 4'),
                       ],
                     ),
+                    
                   ],
                 ),
               ),
@@ -321,7 +323,7 @@ class _TicketPageState extends State<TicketPage> {
                 ),
               ),
               Container(
-                height: 196,
+                height: 200,
                 width: 200,
                 color: Color(0xff7270C2),
                 child: Padding(

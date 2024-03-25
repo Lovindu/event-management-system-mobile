@@ -86,14 +86,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                 ),
-                Positioned(
-                    height: 110,
-                    width: 500,
-                    top: 380,
-                    left: 0,
-                    child: ClipRect(
-                      child: Image.asset('lib/images/Vector 1.png'),
-                    )),
+                
               ],
             ),
             Text(

@@ -46,7 +46,7 @@ class _TCardState extends State<TCard> {
                       fontWeight: FontWeight.w500),
                 ),
                 Text(
-                  '---------------------------------------',
+                  '------------------------------------',
                   style: TextStyle(
                       color: Color(0xff8B8E9B), fontWeight: FontWeight.bold),
                 ),

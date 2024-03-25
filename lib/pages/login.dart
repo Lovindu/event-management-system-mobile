@@ -54,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
       //appBar: AppBar(),
       body: SingleChildScrollView(
         child: Container(
-          height: 790,
+          height: 840,
           color: Color(0xff4B38AC),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -180,7 +180,7 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(fontSize: 13, color: Colors.white),
                     ),
                     SizedBox(
-                      width: 110,
+                      width: 100,
                     ),
                     GestureDetector(
                       onTap: () {

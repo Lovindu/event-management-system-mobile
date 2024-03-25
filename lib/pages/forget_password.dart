@@ -158,7 +158,7 @@ class _ForgotState extends State<Forgot> {
                       child: Text(
                         'Set new password',
                         style: TextStyle(
-                            fontSize: 25,
+                            fontSize: 20,
                             fontWeight: FontWeight.w700,
                             color: Color(0xff7270C2)),
                       ),
